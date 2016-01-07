@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.integer :rating
       t.string :comment
-      t.boolean :would_reccomend
+      t.boolean :would_recommend
       t.integer :patron_id
       t.integer :bar_id
 
