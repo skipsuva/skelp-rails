@@ -3,13 +3,13 @@
 one:
   rating: 1
   comment: MyString
-  would_reccomend: false
+  would_recommend: false
   patron_id: 1
   bar_id: 1
 
 two:
   rating: 1
   comment: MyString
-  would_reccomend: false
+  would_recommend: false
   patron_id: 1
   bar_id: 1
