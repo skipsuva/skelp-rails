@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rating: 1
+  comment: MyString
+  would_reccomend: false
+  patron_id: 1
+  bar_id: 1
+
+two:
+  rating: 1
+  comment: MyString
+  would_reccomend: false
+  patron_id: 1
+  bar_id: 1

@@ -1,0 +1,7 @@
+to set up scaffolds - model, db migration, controller, views:
+
+rails g scaffold MODEL attribute:string
+
+rails g scaffold Bar name:string address:string theme:string img_url:string
+rails g scaffold Patron name:string email:string age:integer
+rails g scaffold Review rating:integer comment:string would_reccomend:boolean patron_id:integer bar_id:integer
