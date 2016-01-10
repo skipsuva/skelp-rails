@@ -1,3 +1,4 @@
+require 'pry'
 class BarsController < ApplicationController
   before_action :set_bar, only: [:show, :edit, :update, :destroy]
 
@@ -7,9 +8,24 @@ class BarsController < ApplicationController
     @bars = Bar.all
   end
 
+  def featured
+    @bar = Bar.order("RANDOM()").first
+  end
+
+  def search
+    if Bar.where("name LIKE '%#{params[:name]}%'").first == nil
+      redirect to '/'
+    else
+      @bar = Bar.where("name LIKE '%#{params[:name]}%'").first
+      @reviews = Review.all.where(bar_id: @bar.id)
+      redirect to "/#{@bar.slug}"
+    end
+  end
+
   # GET /bars/1
   # GET /bars/1.json
   def show
+    # @bar = Bar.find_by_slug(bar_params[:id])
   end
 
   # GET /bars/new
@@ -36,6 +52,8 @@ class BarsController < ApplicationController
       end
     end
   end
+
+
 
   # PATCH/PUT /bars/1
   # PATCH/PUT /bars/1.json
@@ -64,7 +82,8 @@ class BarsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_bar
-      @bar = Bar.find(params[:id])
+      @bar = Bar.find_by_slug(params[:slug])
+      #id is actually the "slug" in the index - can change in routes
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

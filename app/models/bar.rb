@@ -1,6 +1,6 @@
 class Bar < ActiveRecord::Base
-  has_many :ratings
-  has_many :patrons, through: :ratings
+  has_many :reviews
+  has_many :patrons, through: :reviews
 
   validates_presence_of :name, :address, :theme, :img_url
 

@@ -1,7 +1,30 @@
 to set up scaffolds - model, db migration, controller, views:
 
-rails g scaffold MODEL attribute:string
+  rails g scaffold MODEL attribute:string
 
-rails g scaffold Bar name:string address:string theme:string img_url:string
-rails g scaffold Patron name:string email:string age:integer
-rails g scaffold Review rating:integer comment:string would_recommend:boolean patron_id:integer bar_id:integer
+  rails g scaffold Bar name:string address:string theme:string img_url:string
+  rails g scaffold Patron name:string email:string age:integer
+  rails g scaffold Review rating:integer comment:string would_recommend:boolean patron_id:integer bar_id:integer
+
+
+need to integrate the foreign keys - Bar.first.reviews doesnt work...
+  it  will replace the 'ids' in the review join table
+
+  relationships might be okay...just need to have it recognize the belongs_to aspect of the review
+
+  t.integer :id_ref, index: true, foreign_key: true
+  ^ might be sufficient
+
+TO DO
+
+  fix root route to featured bar page
+  clean up use of associations
+  clean up routes I dont need
+  investiagte routes with the slugs - add custom to routes.rb?
+
+  ADD USER AUTH
+
+  fix search link/page
+  add more robust form to add review page
+
+  bar pages to show reviews via partial
