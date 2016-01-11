@@ -24,7 +24,8 @@ class BarsController < ApplicationController
   # GET /bars/1
   # GET /bars/1.json
   def show
-    # @bar = Bar.find_by_slug(bar_params[:id])
+    # binding.pry
+    # @bar = Bar.find(bar_params[:slug])
     @reviews = @bar.reviews
   end
 

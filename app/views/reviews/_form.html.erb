@@ -24,12 +24,12 @@
     <%= f.check_box :would_recommend %>
   </div>
   <div class="field">
-    <%= f.label :patron_id %><br>
-    <%= f.number_field :patron_id %>
+    <%= f.label "Patron" %><br>
+    <%= f.collection_select :patron_id, Patron.order(:name),:id,:name, include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :bar_id %><br>
-    <%= f.number_field :bar_id %>
+    <%= f.label "Bar" %><br>
+    <%= f.collection_select :bar_id, Bar.order(:name),:id,:name, include_blank: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
