@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root "bars#featured"
 
   resources :reviews
-  resources :patrons, param: :slug
-  resources :bars, param: :slug
+  resources :patrons#, param: :slug
+  resources :bars#, param: :slug
 
   resources :sessions, only: [:new, :create]
   delete 'sessions', to: "sessions#destroy"

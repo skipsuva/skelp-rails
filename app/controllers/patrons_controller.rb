@@ -65,7 +65,8 @@ class PatronsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_patron
-      @patron = Patron.find_by_slug(params[:slug])
+      @patron = Patron.find(params[:id])
+      # @patron = Patron.find_by_slug(params[:slug])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
