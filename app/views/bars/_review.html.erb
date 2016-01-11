@@ -1,0 +1,9 @@
+<div class="indivreview">
+  <ul>
+    <h5>Rating: <%= review.rating %>/5</h5>
+    <h6> <a href="/patrons/<%=Patron.find_by_id(review.patron_id).slug%>"> <%= Patron.find_by_id(review.patron_id).name%></a></h6>
+    <p><%= review.comment %></p>
+    <h5>Recommended? <%= review.would_recommend == true ? "Yes" : "No" %></h5>
+  </ul>
+<br>
+</div>

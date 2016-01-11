@@ -1,0 +1,12 @@
+<div class="indivreview">
+  <ul>
+    <h4> <a href="/bars/<%=Bar.find_by_id(review.bar_id).slug%>"> <%= Bar.find_by_id(review.bar_id).name %></a></h4>
+    <h5>Rating: <%= review.rating %>/5</h5>
+    <p><%= review.comment %></p>
+    <h5>Recommended? <%= review.would_recommend == true ? "Yes" : "No" %></h5>
+    <br>
+      <%= link_to "Edit", edit_review_path(review.id) %>
+      <%= link_to "Delete", review, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </ul>
+  <br>
+</div>

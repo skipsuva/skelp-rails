@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  resources :reviews
-  resources :patrons
-  resources :bars, param: :slug
+
   root "bars#featured"
 
+  resources :reviews
+  resources :patrons, param: :slug
+  resources :bars, param: :slug
+
+  resources :sessions, only: [:new, :create]
+  delete 'sessions', to: "sessions#destroy"
+  resources :registrations, only: [:new, :create]
+
+
+  get "bars/search"
   # get "/bars/search", to: "bars#search"
 
   # The priority is based upon order of creation: first created -> highest priority.

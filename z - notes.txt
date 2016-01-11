@@ -17,14 +17,24 @@ need to integrate the foreign keys - Bar.first.reviews doesnt work...
 
 TO DO
 
-  fix root route to featured bar page
+X  fix root route to featured bar page
   clean up use of associations
   clean up routes I dont need
   investiagte routes with the slugs - add custom to routes.rb?
+  fix new review
 
-  ADD USER AUTH
+  X ADD USER AUTH
 
   fix search link/page
   add more robust form to add review page
 
   bar pages to show reviews via partial
+
+X model for:
+  user
+X controllers for:
+  sessions
+  registrations
+X views for:
+  registrations new
+  sessions new

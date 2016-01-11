@@ -1,8 +1,8 @@
-<form action="/bars/search" method="post">
+<!-- <form action="/bars/search" method="post">
   Enter the name of a bar you're looking for:
   <input type="text" name="name">
   <input type="submit" value="submit">
-</form>
+</form> -->
 
 <%= form_tag("/bars/search", method: "get") do %>
   <%= label_tag(:name, "Enter the name of a bar you're looking for:") %>

@@ -1,25 +1,15 @@
 <p id="notice"><%= notice %></p>
+<h1><%= @bar.name %></h1>
 <img class="featuredimg" src="<%= @bar.img_url %>" alt="<%= @bar.name %> image" />
 
-<p>
-  <strong>Name:</strong>
-  <%= @bar.name %>
-</p>
+<h5>Located: <%= @bar.address %> </h5>
+<h5>Theme: <%= @bar.theme %> </h5>
 
-<p>
-  <strong>Address:</strong>
-  <%= @bar.address %>
-</p>
+<div class="showreviews">
+  <h3>Reviews:</h3>
+    <h4>Average Rating: <%= @reviews.average(:rating).to_i != 0 ? @reviews.average(:rating).to_i : "No Ratings Yet" %> </h5>
+    <%= render :partial => "bars/review", :collection => @reviews, :as => :review %>
+</div>
 
-<p>
-  <strong>Theme:</strong>
-  <%= @bar.theme %>
-</p>
-
-<p>
-  <strong>Img url:</strong>
-  <%= @bar.img_url %>
-</p>
-
-<%= link_to 'Edit', edit_bar_path(@bar) %> |
-<%= link_to 'Back', bars_path %>
+| <%= link_to 'Write a Review', new_review_path %>
+<%= link_to 'Edit Info', edit_bar_path(@bar) %> |

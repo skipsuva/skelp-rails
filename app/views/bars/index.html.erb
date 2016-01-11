@@ -1,47 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Bars</h1>
+<h1>Bars</h1>
 <div class="listwrapper">
 
-<% @bars.map do |bar| %>
-  <div class="cluster">
-    <ul>
-      <a href="/bars/<%=bar.slug%>"><img class="boximg" src="<%= bar.img_url %>" alt="<%= bar.name %> image" /></a>
-      <h3> <a href="/bars/<%=bar.slug%>"><%= bar.name %></a></h3>
-      <h5>Located: <%= bar.address %> </h5>
-      <h5>Theme: <%= bar.theme %> </h5>
-      <h5>Average Rating: <%= Review.all.where(bar_id: bar.id).average(:rating).to_i != 0 ? Review.all.where(bar_id: bar.id).average(:rating).to_i : "No Ratings Yet" %> </h5>
-      <br>
-    </ul>
-  </div>
-  <%end%>
+  <%= render @bars %>
+
 </div>
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Theme</th>
-      <th>Img url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bars.each do |bar| %>
-      <tr>
-        <td><%= bar.name %></td>
-        <td><%= bar.address %></td>
-        <td><%= bar.theme %></td>
-        <td><%= bar.img_url %></td>
-        <td><%= link_to 'Show', bar %></td>
-        <td><%= link_to 'Edit', edit_bar_path(bar) %></td>
-        <td><%= link_to 'Destroy', bar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
-
 <br>
 
-<%= link_to 'New Bar', new_bar_path %>
+<%= link_to 'Add a New Bar', new_bar_path %>

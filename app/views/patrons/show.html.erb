@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @patron.name %>
-</p>
+<h3>Name: <%= @patron.name %></h2>
+<h3>Email: <%= @patron.email %></h3>
+<h3>Age: <%= @patron.age %></h3>
+<h3>Average Bar Rating: <%= Review.all.where(patron_id: @patron.id).average(:rating).to_i != 0 ? Review.all.where(patron_id: @patron.id).average(:rating).to_i : "No Ratings Yet" %> </h5>
 
-<p>
-  <strong>Email:</strong>
-  <%= @patron.email %>
-</p>
+<br>
+<div class="showreviews">
+<h3>Patron Reviews:</h3>
 
-<p>
-  <strong>Age:</strong>
-  <%= @patron.age %>
-</p>
+  <%= render :partial => "patrons/review", :collection => @reviews, :as => :review %>
+
+</div>
 
 <%= link_to 'Edit', edit_patron_path(@patron) %> |
 <%= link_to 'Back', patrons_path %>
