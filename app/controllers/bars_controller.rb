@@ -11,15 +11,6 @@ class BarsController < ApplicationController
     @bar = Bar.order("RANDOM()").first
   end
 
-  # def search
-  #   if Bar.where("name LIKE '%#{params[:name]}%'").first == nil
-  #     redirect to '/'
-  #   else
-  #     @bar = Bar.where("name LIKE '%#{params[:name]}%'").first
-  #     @reviews = Review.all.where(bar_id: @bar.id)
-  #     redirect to "/#{@bar.slug}"
-  #   end
-  # end
 
   # GET /bars/1
   # GET /bars/1.json

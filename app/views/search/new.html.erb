@@ -1,0 +1,6 @@
+
+<%= form_tag(search_path) do %>
+  <%= label_tag(:name, "Enter the name of a bar you're looking for:") %>
+  <%= text_field_tag(:name) %>
+  <%= submit_tag "Search" %>
+<% end %>
