@@ -28,7 +28,8 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        @bar = @review.bar
+        format.html { redirect_to @bar, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -54,9 +55,10 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
+    @bar = @review.bar
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to @bar, notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to root_path, notice: "You have been logged in"
     else
       @user = User.new
-      flash.now[:error] = "Bad Username or Password, idiot"
+      flash.now[:notice] = "Bad Username or Password, idiot"
       render :new
     end
   end

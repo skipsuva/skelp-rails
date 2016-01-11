@@ -30,16 +30,19 @@
         <li> <a href="/search"> Search </a></li>
         <li> <a href="/bars/"> Bars </a></li>
         <li> <a href="/reviews/new"> Write a Review </a></li>
-        <% if logged_in? %>
-          Current user is: <%= current_user.name%>
-          <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Sign Up", new_registration_path %></li>
-          <li><%= link_to "Sign In", new_session_path %></li>
-        <%end%>
+        <!-- <ul class= "auth" style="float:right;list-style-type:none;"> -->
+          <% if logged_in? %>
+            <li><%= link_to "Log Out, #{current_user.name}", sessions_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign Up", new_registration_path %></li>
+            <li><%= link_to "Sign In", new_session_path %></li>
+          <%end%>
+        <!-- </ul> -->
       </nav>
     </div>
-<%= yield %>
+
+  <%= yield %>
+
 
 </body>
 </html>

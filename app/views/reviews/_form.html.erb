@@ -12,6 +12,14 @@
   <% end %>
 
   <div class="field">
+    <%= f.label "Who Are You?" %><br>
+    <%= f.collection_select :patron_id, Patron.order(:name),:id,:name, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label "Which Bar?" %><br>
+    <%= f.collection_select :bar_id, Bar.order(:name),:id,:name, include_blank: true %>
+  </div>
+  <div class="field">
     <%= f.label :rating %><br>
     <%= f.number_field :rating %>
   </div>
@@ -23,14 +31,7 @@
     <%= f.label :would_recommend %><br>
     <%= f.check_box :would_recommend %>
   </div>
-  <div class="field">
-    <%= f.label "Patron" %><br>
-    <%= f.collection_select :patron_id, Patron.order(:name),:id,:name, include_blank: true %>
-  </div>
-  <div class="field">
-    <%= f.label "Bar" %><br>
-    <%= f.collection_select :bar_id, Bar.order(:name),:id,:name, include_blank: true %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

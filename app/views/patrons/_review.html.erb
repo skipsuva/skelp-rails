@@ -6,8 +6,10 @@
       <p><%= review.comment %></p>
       <h5>Recommended? <%= review.would_recommend == true ? "Yes" : "No" %></h5>
       <br>
+      <% if logged_in? %>
         <%= link_to "Edit", edit_review_path(review.id) %>
         <%= link_to "Delete", review, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </ul>
   <% end  %>
   <br>
